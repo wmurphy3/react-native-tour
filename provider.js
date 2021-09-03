@@ -27,6 +27,11 @@ export default class OnboardingProvider extends React.Component {
     super();
     this.state = { positions: {}, step: initialStep, steps };
   }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({
+      steps: nextProps.steps
+    })
+  }
   render() {
     const { highlightComponent, centerStyle, onCompletedStep } = this.props;
     const OverlayWrapper = highlightComponent || View;
